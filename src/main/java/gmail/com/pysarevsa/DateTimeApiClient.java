@@ -13,6 +13,7 @@ public class DateTimeApiClient {
         this.url = url;
     }
 
+    
     public String getDateTime() throws Exception {
 //        URI url = new URI(this.url).toURL().toURI();
 //        HttpURLConnection connection = (HttpURLConnection) url.toURL().openConnection();
