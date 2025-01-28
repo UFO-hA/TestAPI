@@ -12,10 +12,10 @@ public class DateTimeApiClient {
         this.url = url;
     }
 
-    public String getDateTime() throws Exception { //получение ответа API
+    public String getDateTime() throws Exception {
         URI url = new URI(this.url).toURL().toURI();
         HttpURLConnection connection = (HttpURLConnection) url.toURL().openConnection();
-        connection.setRequestMethod("GET");  // настройка запроса
+        connection.setRequestMethod("GET");
         connection.setConnectTimeout(5000);
         connection.setReadTimeout(5000);
         try (BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()))) {
