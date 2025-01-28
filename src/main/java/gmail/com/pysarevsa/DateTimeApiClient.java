@@ -3,12 +3,18 @@ package gmail.com.pysarevsa;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
-import java.net.URL;
+import java.net.URI;
 
-public class DateTimeAPI {
-    public static String getDateTime(String apiUrl) throws Exception { //получение ответа API
-        URL url = new URL(apiUrl);
-        HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+public class DateTimeApiClient {
+    private final String url;
+
+    public DateTimeApiClient(String url) {
+        this.url = url;
+    }
+
+    public String getDateTime() throws Exception { //получение ответа API
+        URI url = new URI(this.url).toURL().toURI();
+        HttpURLConnection connection = (HttpURLConnection) url.toURL().openConnection();
         connection.setRequestMethod("GET");  // настройка запроса
         connection.setConnectTimeout(5000);
         connection.setReadTimeout(5000);
