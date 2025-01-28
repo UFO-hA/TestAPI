@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URI;
+import java.net.URL;
 
 public class DateTimeApiClient {
     private final String url;
@@ -13,8 +14,12 @@ public class DateTimeApiClient {
     }
 
     public String getDateTime() throws Exception {
-        URI url = new URI(this.url).toURL().toURI();
-        HttpURLConnection connection = (HttpURLConnection) url.toURL().openConnection();
+//        URI url = new URI(this.url).toURL().toURI();
+//        HttpURLConnection connection = (HttpURLConnection) url.toURL().openConnection();
+
+        URL url = new URI(this.url).toURL();
+        HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+
         connection.setRequestMethod("GET");
         connection.setConnectTimeout(5000);
         connection.setReadTimeout(5000);
