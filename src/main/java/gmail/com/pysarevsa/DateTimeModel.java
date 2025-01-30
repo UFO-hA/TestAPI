@@ -3,213 +3,151 @@ package gmail.com.pysarevsa;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
 
 
 public class DateTimeModel {
+    private String status;
+    private String message;
+    private String countryCode;
+    private String countryName;
+    private String regionName;
+    private String cityName;
+    private String zoneName;
+    private String abbreviation;
+    private Integer gmtOffset;
+    private String dst;
+    private Integer zoneStart;
+    private Integer zoneEnd;
+    private String nextAbbreviation;
+    private Integer timestamp;
+    private String formatted;
+    private final Map<String, Object> additionalProperties = new LinkedHashMap<String, Object>();
 
+    public String getStatus() {
+        return status;
+    }
 
-    @JsonInclude(JsonInclude.Include.NON_NULL)
+    public void setStatus(String status) {
+        this.status = status;
+    }
 
+    public String getMessage() {
+        return message;
+    }
 
-    public static class Example {
+    public void setMessage(String message) {
+        this.message = message;
+    }
 
-        @JsonProperty("status")
-        private String status;
-        @JsonProperty("message")
-        private String message;
-        @JsonProperty("countryCode")
-        private String countryCode;
-        @JsonProperty("countryName")
-        private String countryName;
-        @JsonProperty("regionName")
-        private String regionName;
-        @JsonProperty("cityName")
-        private String cityName;
-        @JsonProperty("zoneName")
-        private String zoneName;
-        @JsonProperty("abbreviation")
-        private String abbreviation;
-        @JsonProperty("gmtOffset")
-        private Integer gmtOffset;
-        @JsonProperty("dst")
-        private String dst;
-        @JsonProperty("zoneStart")
-        private Integer zoneStart;
-        @JsonProperty("zoneEnd")
-        private Integer zoneEnd;
-        @JsonProperty("nextAbbreviation")
-        private String nextAbbreviation;
-        @JsonProperty("timestamp")
-        private Integer timestamp;
-        @JsonProperty("formatted")
-        private String formatted;
-        @JsonIgnore
-        private Map<String, Object> additionalProperties = new LinkedHashMap<String, Object>();
+    public String getCountryCode() {
+        return countryCode;
+    }
 
-        @JsonProperty("status")
-        public String getStatus() {
-            return status;
-        }
+    public void setCountryCode(String countryCode) {
+        this.countryCode = countryCode;
+    }
 
-        @JsonProperty("status")
-        public void setStatus(String status) {
-            this.status = status;
-        }
+    public String getCountryName() {
+        return countryName;
+    }
 
-        @JsonProperty("message")
-        public String getMessage() {
-            return message;
-        }
+    public void setCountryName(String countryName) {
+        this.countryName = countryName;
+    }
 
-        @JsonProperty("message")
-        public void setMessage(String message) {
-            this.message = message;
-        }
+    public String getRegionName() {
+        return regionName;
+    }
 
-        @JsonProperty("countryCode")
-        public String getCountryCode() {
-            return countryCode;
-        }
+    public void setRegionName(String regionName) {
+        this.regionName = regionName;
+    }
 
-        @JsonProperty("countryCode")
-        public void setCountryCode(String countryCode) {
-            this.countryCode = countryCode;
-        }
+    public String getCityName() {
+        return cityName;
+    }
 
-        @JsonProperty("countryName")
-        public String getCountryName() {
-            return countryName;
-        }
+    public void setCityName(String cityName) {
+        this.cityName = cityName;
+    }
 
-        @JsonProperty("countryName")
-        public void setCountryName(String countryName) {
-            this.countryName = countryName;
-        }
+    public String getZoneName() {
+        return zoneName;
+    }
 
-        @JsonProperty("regionName")
-        public String getRegionName() {
-            return regionName;
-        }
+    public void setZoneName(String zoneName) {
+        this.zoneName = zoneName;
+    }
 
-        @JsonProperty("regionName")
-        public void setRegionName(String regionName) {
-            this.regionName = regionName;
-        }
+    public String getAbbreviation() {
+        return abbreviation;
+    }
 
-        @JsonProperty("cityName")
-        public String getCityName() {
-            return cityName;
-        }
+    public void setAbbreviation(String abbreviation) {
+        this.abbreviation = abbreviation;
+    }
 
-        @JsonProperty("cityName")
-        public void setCityName(String cityName) {
-            this.cityName = cityName;
-        }
+    public Integer getGmtOffset() {
+        return gmtOffset;
+    }
 
-        @JsonProperty("zoneName")
-        public String getZoneName() {
-            return zoneName;
-        }
+    public void setGmtOffset(Integer gmtOffset) {
+        this.gmtOffset = gmtOffset;
+    }
 
-        @JsonProperty("zoneName")
-        public void setZoneName(String zoneName) {
-            this.zoneName = zoneName;
-        }
+    public String getDst() {
+        return dst;
+    }
 
-        @JsonProperty("abbreviation")
-        public String getAbbreviation() {
-            return abbreviation;
-        }
+    public void setDst(String dst) {
+        this.dst = dst;
+    }
 
-        @JsonProperty("abbreviation")
-        public void setAbbreviation(String abbreviation) {
-            this.abbreviation = abbreviation;
-        }
+    public Integer getZoneStart() {
+        return zoneStart;
+    }
 
-        @JsonProperty("gmtOffset")
-        public Integer getGmtOffset() {
-            return gmtOffset;
-        }
+    public void setZoneStart(Integer zoneStart) {
+        this.zoneStart = zoneStart;
+    }
 
-        @JsonProperty("gmtOffset")
-        public void setGmtOffset(Integer gmtOffset) {
-            this.gmtOffset = gmtOffset;
-        }
+    public Integer getZoneEnd() {
+        return zoneEnd;
+    }
 
-        @JsonProperty("dst")
-        public String getDst() {
-            return dst;
-        }
+    public void setZoneEnd(Integer zoneEnd) {
+        this.zoneEnd = zoneEnd;
+    }
 
-        @JsonProperty("dst")
-        public void setDst(String dst) {
-            this.dst = dst;
-        }
+    public String getNextAbbreviation() {
+        return nextAbbreviation;
+    }
 
-        @JsonProperty("zoneStart")
-        public Integer getZoneStart() {
-            return zoneStart;
-        }
+    public void setNextAbbreviation(String nextAbbreviation) {
+        this.nextAbbreviation = nextAbbreviation;
+    }
 
-        @JsonProperty("zoneStart")
-        public void setZoneStart(Integer zoneStart) {
-            this.zoneStart = zoneStart;
-        }
+    public Integer getTimestamp() {
+        return timestamp;
+    }
 
-        @JsonProperty("zoneEnd")
-        public Integer getZoneEnd() {
-            return zoneEnd;
-        }
+    public void setTimestamp(Integer timestamp) {
+        this.timestamp = timestamp;
+    }
 
-        @JsonProperty("zoneEnd")
-        public void setZoneEnd(Integer zoneEnd) {
-            this.zoneEnd = zoneEnd;
-        }
+    public String getFormatted() {
+        return formatted;
+    }
 
-        @JsonProperty("nextAbbreviation")
-        public String getNextAbbreviation() {
-            return nextAbbreviation;
-        }
+    public void setFormatted(String formatted) {
+        this.formatted = formatted;
+    }
 
-        @JsonProperty("nextAbbreviation")
-        public void setNextAbbreviation(String nextAbbreviation) {
-            this.nextAbbreviation = nextAbbreviation;
-        }
+    public Map<String, Object> getAdditionalProperties() {
+        return this.additionalProperties;
+    }
 
-        @JsonProperty("timestamp")
-        public Integer getTimestamp() {
-            return timestamp;
-        }
-
-        @JsonProperty("timestamp")
-        public void setTimestamp(Integer timestamp) {
-            this.timestamp = timestamp;
-        }
-
-        @JsonProperty("formatted")
-        public String getFormatted() {
-            return formatted;
-        }
-
-        @JsonProperty("formatted")
-        public void setFormatted(String formatted) {
-            this.formatted = formatted;
-        }
-
-        @JsonAnyGetter
-        public Map<String, Object> getAdditionalProperties() {
-            return this.additionalProperties;
-        }
-
-        @JsonAnySetter
-        public void setAdditionalProperty(String name, Object value) {
-            this.additionalProperties.put(name, value);
-        }
-
+    public void setAdditionalProperty(String name, Object value) {
+        this.additionalProperties.put(name, value);
     }
 }

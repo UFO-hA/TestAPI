@@ -1,10 +1,13 @@
 package gmail.com.pysarevsa;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URI;
 import java.net.URL;
+
 
 public class DateTimeApiClient {
     private final String url;
@@ -13,7 +16,7 @@ public class DateTimeApiClient {
         this.url = url;
     }
 
-    public String getDateTime() throws Exception {
+    public DateTimeModel getDateTime() throws Exception {
         URL url = new URI(this.url).toURL();
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
         connection.setRequestMethod("GET");
@@ -25,7 +28,8 @@ public class DateTimeApiClient {
             while ((line = in.readLine()) != null) {
                 response.append(line);
             }
-            return response.toString();
+            DateTimeModel dataTime = new ObjectMapper().readValue(response.toString(), DateTimeModel.class);
+            return dataTime;
         }
     }
 }
