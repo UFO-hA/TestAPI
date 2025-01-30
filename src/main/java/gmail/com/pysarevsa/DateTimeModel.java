@@ -13,12 +13,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class DateTimeModel {
 
 
-
-
     @JsonInclude(JsonInclude.Include.NON_NULL)
 
 
-    public static   class Example {
+    public static class Example {
 
         @JsonProperty("status")
         private String status;

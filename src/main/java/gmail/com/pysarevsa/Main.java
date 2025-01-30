@@ -11,11 +11,11 @@ public class Main {
             DateTimeApiClient api = new DateTimeApiClient(url);
             String response = api.getDateTime();
             DateTimeModel.Example example = objectMapper.readValue(response, DateTimeModel.Example.class);
-            int dateTimeIndex = response.indexOf("OK");
+            int dateTimeIndex = response.indexOf("\"status\": \"OK\"");
             String timeDate = example.getFormatted();
             if (dateTimeIndex != -1) {
                 String time = timeDate.substring(11, 19);
-                String date = timeDate.substring(0, 9);
+                String date = timeDate.substring(0, 10);
                 System.out.println("Точное время: " + time);
                 System.out.println("Точная дата: " + date);
                 System.out.println("Страна: " + example.getCountryName());
