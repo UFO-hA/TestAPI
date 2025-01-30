@@ -1,21 +1,25 @@
 package gmail.com.pysarevsa;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+
 public class Main {
     public static void main(String[] args) {
-        String url = ("http://api.timezonedb.com/v2.1/get-time-zone?key=4ESRG1IH1NNB&format=json&by=zone&zone=Europe/Berlin"); //Новый API с ключём. Пока только для региона Europe/Berlin
+        String url = ("http://api.timezonedb.com/v2.1/get-time-zone?key=4ESRG1IH1NNB&format=json&by=zone&zone=Europe/Berlin");
+        ObjectMapper objectMapper = new ObjectMapper();
         try {
             DateTimeApiClient api = new DateTimeApiClient(url);
             String response = api.getDateTime();
-            int dateTimeIndex = response.indexOf("\"formatted\":");
+            DateTimeModel.Example example = objectMapper.readValue(response, DateTimeModel.Example.class);
+            int dateTimeIndex = response.indexOf("OK");
+            String timeDate = example.getFormatted();
             if (dateTimeIndex != -1) {
-                int timeStart = dateTimeIndex + 25;
-                int timeEnd = response.indexOf('\"', timeStart);
-                int dateStart = dateTimeIndex + 14;
-                int dateEnd = response.indexOf(' ', dateStart);
-                String Date = response.substring(dateStart, dateEnd);
-                String Time = response.substring(timeStart, timeEnd);
-                System.out.println("Точное время: " + Time);
-                System.out.println("Точная дата: " + Date);
+                String time = timeDate.substring(11, 19);
+                String date = timeDate.substring(0, 9);
+                System.out.println("Точное время: " + time);
+                System.out.println("Точная дата: " + date);
+                System.out.println("Страна: " + example.getCountryName());
+                System.out.println("Часовой пояс: " + example.getZoneName());
             } else {
                 System.out.println("Поле formatted не найдено в ответе API.");
             }

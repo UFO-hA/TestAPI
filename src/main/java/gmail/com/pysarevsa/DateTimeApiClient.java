@@ -15,12 +15,8 @@ public class DateTimeApiClient {
 
 
     public String getDateTime() throws Exception {
-//        URI url = new URI(this.url).toURL().toURI();
-//        HttpURLConnection connection = (HttpURLConnection) url.toURL().openConnection();
-
         URL url = new URI(this.url).toURL();
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-
         connection.setRequestMethod("GET");
         connection.setConnectTimeout(5000);
         connection.setReadTimeout(5000);
