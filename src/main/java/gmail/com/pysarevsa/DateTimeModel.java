@@ -3,8 +3,6 @@ package gmail.com.pysarevsa;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-
-
 public class DateTimeModel {
     private String status;
     private String message;
