@@ -8,7 +8,6 @@ import java.net.HttpURLConnection;
 import java.net.URI;
 import java.net.URL;
 import java.util.StringJoiner;
-//import java.net.
 
 public class DateTimeApiClient {
     private final String requestString;
