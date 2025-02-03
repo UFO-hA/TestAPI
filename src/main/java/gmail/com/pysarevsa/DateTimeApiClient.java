@@ -7,17 +7,20 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URI;
 import java.net.URL;
-import java.net.
+import java.util.StringJoiner;
+//import java.net.
 
 public class DateTimeApiClient {
-    private final String url;
+    private final String requestString;
 
-    public DateTimeApiClient(String url) {
-        this.url = url;
+    public DateTimeApiClient(RequestConfig config) {
+        StringJoiner paramsJoiner = new StringJoiner("&", "?", "");
+        config.getQueryParams().forEach((key, value) -> paramsJoiner.add(key.concat("=").concat(value)));
+        this.requestString = config.getUri().concat(paramsJoiner.toString());
     }
 
     public DateTimeModel getDateTime() throws Exception {
-        URL url = new URI(this.url).toURL();
+        URL url = new URI(requestString).toURL();
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
         connection.setRequestMethod("GET");
         connection.setConnectTimeout(5000);
